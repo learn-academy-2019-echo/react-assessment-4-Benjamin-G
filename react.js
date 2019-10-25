@@ -5,7 +5,9 @@
 
 // 1. Write a React component that prints "I am a component!" Be sure to include all necessary imports, exports, etc.
 
-
+// function Hello {
+//   return <h1>"I am a component!"</h1>;
+// }
 
 
 
@@ -17,6 +19,7 @@ for(let i=0; i<names.length; i++){
   console.log(`${names[i]} is ${names[i].length} characters long.`)
 }
 
+names.map(name => `${name} is ${name.length} characters long.`)
 
 
 // 3. Destructure the following variables out of state.
@@ -27,7 +30,7 @@ this.state = {
   dislikes: ["mirrors", "garlic", "wooden stakes"]
 }
 
-
+[name, home, dislikes] = this.state
 
 // 4. Write a React method that would add one and update the state of the count each time the method is called.
 
@@ -35,6 +38,7 @@ this.state = {
   count: 0
 }
 
+this.setState({count: this.state.count + 1})
 
 
 // 5. There are four mistakes in this code that would cause it to break our application. Find the mistakes and fix them:
@@ -45,19 +49,20 @@ class Recipes{
   constructor(props){
     super(props)
     this.state = {
-      recipes:
+      recipes:[
         {name: 'Meatballs'},
         {name: 'Mac & Cheese'}
+      ]
     }
   }
 
   render() {
-    return(
-      let recipe = recipes.map(recipe => {
+    let recipe = this.state.recipes.map(recipe => {
         return(
           <li key={recipe.name}>{recipe.name}</li>
         )
-      })
+    })
+    return(
       <ul>
         {recipe}
       </ul>
